@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.loginpanel.css') }}">
+    <title>Document</title>
+</head>
+<body>
+<main class="main">
+	<div class="container">
+		<section class="wrapper">
+			<div class="heading">
+				<h1 class="text text-large">Yönetici Kayıt</h1>
+			</div>
+			<form name="signin" class="form" action="/admin/kayit" method="post">
+				<div class="input-control">
+					<label for="email" class="input-label" hidden>E-Mail</label>
+					<input type="email" name="email" id="email" class="input-field" placeholder="E-Mail Adresi" required>
+				</div>
+				<div class="input-control">
+					<label for="password" class="input-label" hidden>Parola</label>
+					<input type="text" name="name" id="name" class="input-field" placeholder="Ad Soyad" required>
+				</div>
+				<div class="input-control">
+					<label for="password" class="input-label" hidden>Parola</label>
+					<input type="password" name="password" id="password" class="input-field" placeholder="Parola" required>
+				</div>
+				<div class="input-control">
+					<label for="password" class="input-label" hidden>Admin Anahtar</label>
+					<input type="password" name="key" id="key" class="input-field" placeholder="Anahtar" required>
+				</div>
+				<div class="input-control">
+					<a href="#" class="text text-links">(Sözleşme vs. eklenecek)</a>
+					<input type="submit" name="submit" class="input-submit" value="Kayıt Ol">
+				</div>
+			</form>
+			<p>Yönetici oluşturmak için lütfen size verilen anahtarı girin.</p>
+			<br>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+                {% endwith %}
+	</div>
+</main>
+</body>
+</html>

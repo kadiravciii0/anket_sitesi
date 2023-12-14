@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.loginpanel.css') }}">
+    <title>Document</title>
+</head>
+<body>
+<main class="main">
+	<div class="container">
+		<section class="wrapper">
+			<div class="heading">
+				<h1 class="text text-large">Yönetici Girişi</h1>
+			</div>
+			<form name="signin" class="form" action="/admin/login/" method="post">
+				<div class="input-control">
+					<label for="email" class="input-label" hidden>E-Mail</label>
+					<input type="email" name="email" id="email" class="input-field" placeholder="E-Mail Adresi" required>
+				</div>
+				<div class="input-control">
+					<label for="password" class="input-label" hidden>Parola</label>
+					<input type="password" name="password" id="password" class="input-field" placeholder="Parola" required>
+				</div>
+                <div class="field">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Beni Hatırla
+                    </label>
+                </div>
+				<div class="input-control">
+					<a href="/admin/kayit" class="text text-links">Yönetici Kaydı</a>
+					<input type="submit" name="submit" class="input-submit" value="Giriş">
+				</div>
+			</form>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+                {% endwith %}
+	</div>
+</main>
+</body>
+</html>
