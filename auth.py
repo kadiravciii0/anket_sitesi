@@ -37,7 +37,7 @@ def signup():
         user = User.query.filter_by(email=email).first()
  
         if user: 
-            flash('Email address already exists')
+            flash('Kayıtlı hesabınız bulunuyor.')
             return redirect(url_for('auth_bp.signup'))
         admin_key = '9K!cO01?LA=39uNX!'
         new_user = User(email=email, name=name, \
